@@ -30,6 +30,16 @@ app.post("/app/getPlantWideLoadRate", mobileRouter.getPlantWideLoadRate);
 app.post("/app/getPlantWideElectricQuantity", mobileRouter.getPlantWideElectricQuantity);
 app.post("/app/getPlantWideCrewRate", mobileRouter.getPlantWideCrewRate);
 
+app.post("/app/getNumberOEquipment", mobileRouter.getNumberOEquipment);   //获得机组数据
+
+app.post("/app/getEquipmentTableData", mobileRouter.getEquipmentTableData);//获得下面table的数据
+
+app.post("/app/getEquipmentLineData", mobileRouter.getEquipmentLineData);//获得曲线的接口
+
+app.post("/app/getOtherEquipmentLineData", mobileRouter.getOtherEquipmentLineData); //获得曲线的接口
+
+app.post("/app/getTimeEquipmentLineData", mobileRouter.getTimeEquipmentLineData); //根据时间查询
+
 
 
 app.listen(3001);                                                 //监听3000端口
