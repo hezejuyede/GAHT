@@ -48,6 +48,87 @@ let equipmentLine1 = [{
     "yesterdayData":[4001, 3001, 3015, 3085, 3600, 4830, 3710,4001, 3001, 4015, 4085, 3600, 4830, 3710,4001, 3001, 4015, 4085, 3600, 4830, 3710,4001, 3001,4001,]
 }];
 
+let dayMonthYearData = [
+    [
+        {
+            "id": "1",
+            "yield": "242.22",
+            "proportion": "28.32%",
+            data: [
+                {"text": "日平均负荷", "data": "221", "measurement": "mw"},
+                {"text": "昨日电量", "data": "461.28", "measurement": "万千瓦时"},
+                {"text": "日利用小时数", "data": "3.00", "measurement": "小时"}
+            ]
+        }
+    ],
+    [
+        {
+            "id": "2",
+            "yield": "16603.70",
+            "proportion": "76.23%",
+            data: [
+                {"text": "剩余日均电量", "data": "545.43", "measurement": "万千瓦时"},
+                {"text": "本月计划电量", "data": "18000.00", "measurement": "万千瓦时"},
+                {"text": "本月计划完成率", "data": "92.25", "measurement": "%"},
+                {"text": "月利用小时数", "data": "211.27", "measurement": "小时"}
+            ]
+        }
+    ],
+    [
+        {
+            "id": "3",
+            "yield": "10.8662",
+            "proportion": "-23.32%",
+            data: [
+                {"text": "年计划电量", "data": "25.0600", "measurement": "亿千瓦时"},
+                {"text": "年计划完成率", "data": "43.36", "measurement": "%"},
+                {"text": "年利用小时数", "data": "1382.48", "measurement": "小时"}
+            ]
+        }
+    ]
+];
+
+let dailyElectricityLineData=[{
+    "range":"2019-09-29 - 2019-07-29",
+    "data":[3501, 2501, 3515, 3585, 2900, 3530, 2510,3501, 2501, 3515, 3585, 2200, 3530, 2510,3501, 2501, 3515, 3585, 2500, 3530, 2510,3501, 2501,3501,3585, 2500, 3530, 2510,3501, 2501,3501],
+    "time":[1, 2, 3, 4, 5, 6, 7,8,9, 10, 11, 12, 13, 14,15, 16, 17, 18, 19, 20, 21,22,23,24,25,26,27,28,29,30,31]
+}];
+
+let dailyElectricityTableData = [
+    {"date":"2019-06-29","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-06-30","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-01","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-02","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-03","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-04","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-05","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-06","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-07","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-08","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-09","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-10","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-11","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-12","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-13","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-14","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-15","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-16","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-17","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-18","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-19","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-20","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-21","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-22","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-23","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-24","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-25","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-26","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-27","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-28","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-29","fadianliang":"559.52","fuhelv":"58.95"},
+    {"date":"2019-07-30","fadianliang":"559.52","fuhelv":"58.95"},
+];
+
 
 exports.getPlantWideLoad = function (req, res, next) {
     res.json({
@@ -154,3 +235,38 @@ exports.getTimeEquipmentLineData = function (req, res, next) {
 
 };
 
+exports.getDayMonthYearData = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        res.json({
+            "state":"1",
+            "message":"请求成功",
+            "data":dayMonthYearData
+        })
+    })
+
+};
+
+exports.dailyElectricityLineData = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        res.json({
+            "state":"1",
+            "message":"请求成功",
+            "data":dailyElectricityLineData
+        })
+    })
+
+};
+
+exports.dailyElectricityTableData = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        res.json({
+            "state":"1",
+            "message":"请求成功",
+            "data":dailyElectricityTableData
+        })
+    })
+
+};

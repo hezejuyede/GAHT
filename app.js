@@ -40,6 +40,13 @@ app.post("/app/getOtherEquipmentLineData", mobileRouter.getOtherEquipmentLineDat
 
 app.post("/app/getTimeEquipmentLineData", mobileRouter.getTimeEquipmentLineData); //根据时间查询
 
+app.post("/app/getDayMonthYearData", mobileRouter.getDayMonthYearData); //根据时间查询
+
+
+
+app.post("/app/Electricity/dailyElectricityLineData", mobileRouter.dailyElectricityLineData);
+
+app.post("/app/Electricity/dailyElectricityTableData", mobileRouter.dailyElectricityTableData);
 
 
 app.listen(3001);                                                 //监听3000端口
