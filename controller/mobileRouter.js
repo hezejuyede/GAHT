@@ -130,6 +130,52 @@ let dailyElectricityTableData = [
 ];
 
 
+let monthlyElectricityTableData = [
+    {"date":"2019-01","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2019-02","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2019-03","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2019-04","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2019-05","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2019-06","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2019-07","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2019-08","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2019-09","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2019-10","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2019-11","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2019-12","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+];
+
+let monthlyElectricityLineData=[{
+    "range":"2019-01 - 2019-12",
+    "data":[3501, 2501, 3515, 3585, 2900, 3530, 2510,3501, 2501, 3515, 3585, 2200],
+    "time":[1, 2, 3, 4, 5, 6, 7,8,9, 10, 11, 12]
+}];
+
+
+let yearlyElectricityLineData = [
+    {
+        "range":"2010 - 2019",
+        "data":[3501, 2501, 3515, 3585, 2900, 3530, 2510,3501, 2501],
+        "time":[2010, 2012, 2013, 2014, 2015, 2016, 2017,2018,2019]
+    }
+];
+
+let yearlyElectricityTableData=[
+    {"date":"2010","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2011","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2012","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2013","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2014","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2015","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2016","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2017","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2018","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"},
+    {"date":"2019","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"}
+];
+
+
+
+
 exports.getPlantWideLoad = function (req, res, next) {
     res.json({
         "state":"1",
@@ -266,6 +312,54 @@ exports.dailyElectricityTableData = function (req, res, next) {
             "state":"1",
             "message":"请求成功",
             "data":dailyElectricityTableData
+        })
+    })
+
+};
+
+exports.monthlyElectricityLineData = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        res.json({
+            "state":"1",
+            "message":"请求成功",
+            "data":monthlyElectricityLineData
+        })
+    })
+
+};
+
+exports.monthlyElectricityTableData = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        res.json({
+            "state":"1",
+            "message":"请求成功",
+            "data":monthlyElectricityTableData
+        })
+    })
+
+};
+
+exports.yearlyElectricityLineData = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        res.json({
+            "state":"1",
+            "message":"请求成功",
+            "data":yearlyElectricityLineData
+        })
+    })
+
+};
+
+exports.yearlyElectricityTableData = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        res.json({
+            "state":"1",
+            "message":"请求成功",
+            "data":yearlyElectricityTableData
         })
     })
 
