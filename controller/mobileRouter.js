@@ -364,3 +364,50 @@ exports.yearlyElectricityTableData = function (req, res, next) {
     })
 
 };
+
+
+exports.fillInMonthData = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        console.log(fields.historyTime);
+        console.log(fields.historyData);
+        console.log(fields.payTime);
+        console.log(fields.payData);
+        res.json({
+            "state":"1",
+            "message":"保存成功",
+            "data":[]
+        })
+    })
+
+};
+
+exports.fillInDayData = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        console.log(fields.time);
+        console.log(fields.data);
+        res.json({
+            "state":"1",
+            "message":"保存成功",
+            "data":[]
+        })
+    })
+
+};
+
+exports.fillInYearData = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        console.log(fields.historyTime);
+        console.log(fields.historyData);
+        console.log(fields.payTime);
+        console.log(fields.payData);
+        res.json({
+            "state":"1",
+            "message":"保存成功",
+            "data":[]
+        })
+    })
+
+};

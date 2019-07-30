@@ -55,6 +55,16 @@ app.post("/app/Electricity/yearlyElectricityLineData", mobileRouter.yearlyElectr
 app.post("/app/Electricity/yearlyElectricityTableData", mobileRouter.yearlyElectricityTableData);
 
 
+app.post("/app/Electricity/yearlyElectricityLineData", mobileRouter.yearlyElectricityLineData);
+app.post("/app/Electricity/yearlyElectricityTableData", mobileRouter.yearlyElectricityTableData);
+
+app.post("/app/Electricity/yearlyElectricityLineData", mobileRouter.yearlyElectricityLineData);
+app.post("/app/Electricity/yearlyElectricityTableData", mobileRouter.yearlyElectricityTableData);
+
+app.post("/app/Electricity/fillInMonthData", mobileRouter.fillInMonthData);
+app.post("/app/Electricity/fillInDayData", mobileRouter.fillInDayData);
+app.post("/app/Electricity/fillInYearData", mobileRouter.fillInYearData);
+
 
 app.listen(3001);                                                 //监听3000端口
 
