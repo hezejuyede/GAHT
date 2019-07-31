@@ -173,9 +173,26 @@ let yearlyElectricityTableData=[
     {"date":"2019","fadianliang":"559.52","jihuawanchenglv":"98%","fuhelv":"58.95"}
 ];
 
+let getMaximumAverageLoad=[
+    {"max":"2222", "average":"2459"},
+    {"max":"2222", "average":"2459"},
+    {"max":"2222", "average":"2459"},
+    {"max":"2222", "average":"2459"},
+    {"max":"2222", "average":"2459"},
+    {"max":"2222", "average":"2459"},
+    {"max":"2222", "average":"2459"}
+    ];
 
+let loadForecastingLineData1 = [{
+    "xAxis":['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24'],
+    "actual": [4501, 3501, 4515, 4585, 5900, 4530, 5510,4501, 5501, 4515, 4585, 5200, 4530],
+    "forecast":[4501, 3501, 4515, 4585, 5900, 4530, 5510,4501, 5501, 4515, 4585, 5200, 4530, 5510,4501, 4501, 4515, 4585, 5500, 4530, 3510,4501, 4501,4501,]
+}];
 
-
+let loadForecastingLineData2=[{
+    "xAxis":['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24'],
+    "forecast":[4501, 3501, 4515, 4585, 5900, 4530, 5510,4501, 5501, 4515, 4585, 5200, 4530, 5510,4501, 4501, 4515, 4585, 5500, 4530, 3510,4501, 4501,4501,]
+}];
 exports.getPlantWideLoad = function (req, res, next) {
     res.json({
         "state":"1",
@@ -408,6 +425,47 @@ exports.fillInYearData = function (req, res, next) {
             "message":"保存成功",
             "data":[]
         })
+    })
+
+};
+
+exports.getMaximumAverageLoad = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        res.json({
+            "state":"1",
+            "message":"保存成功",
+            "data":getMaximumAverageLoad
+        })
+    })
+
+};
+
+exports.loadForecastingLineData = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        console.log(fields.id)
+        if (fields.id === 1) {
+            res.json({
+                "state": "1",
+                "message": "保存成功",
+                "data": loadForecastingLineData1
+            })
+        }
+        else if (fields.id === 2) {
+            res.json({
+                "state": "1",
+                "message": "保存成功",
+                "data": loadForecastingLineData2
+            })
+        }
+        else {
+            res.json({
+                "state": "1",
+                "message": "保存成功",
+                "data": loadForecastingLineData1
+            })
+        }
     })
 
 };

@@ -66,6 +66,10 @@ app.post("/app/Electricity/fillInDayData", mobileRouter.fillInDayData);
 app.post("/app/Electricity/fillInYearData", mobileRouter.fillInYearData);
 
 
+app.post("/app/loadForecasting/getMaximumAverageLoad", mobileRouter.getMaximumAverageLoad);
+app.post("/app/loadForecasting/loadForecastingLineData", mobileRouter.loadForecastingLineData);
+
+
 app.listen(3001);                                                 //监听3000端口
 
 console.log("SERVER START");                                     //控制台打印服务器成功启动信息
