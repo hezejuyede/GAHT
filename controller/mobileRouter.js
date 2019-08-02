@@ -469,3 +469,46 @@ exports.loadForecastingLineData = function (req, res, next) {
     })
 
 };
+
+let getEconomicIndicators=[
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"},
+    {"zhibiao":"原烟气NQx浓度(mg/Nm3)","yihaoji":"17.18","erhaoji":"18.18","sanhaoji":"18.18","sihaoji":"18.18","wuhaoji":"18.18","liuhaoji":"18.18"}
+];
+
+exports.getEconomicIndicators = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        res.json({
+            "state": "1",
+            "message": "请求成功",
+            "data": getEconomicIndicators
+        })
+    })
+
+};

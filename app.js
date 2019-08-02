@@ -70,6 +70,8 @@ app.post("/app/loadForecasting/getMaximumAverageLoad", mobileRouter.getMaximumAv
 app.post("/app/loadForecasting/loadForecastingLineData", mobileRouter.loadForecastingLineData);
 
 
+app.post("/app/economicIndicators/getEconomicIndicators", mobileRouter.getEconomicIndicators);
+
 app.listen(3001);                                                 //监听3000端口
 
 console.log("SERVER START");                                     //控制台打印服务器成功启动信息
