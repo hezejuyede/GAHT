@@ -71,6 +71,12 @@ app.post("/app/loadForecasting/loadForecastingLineData", mobileRouter.loadForeca
 
 
 app.post("/app/economicIndicators/getEconomicIndicators", mobileRouter.getEconomicIndicators);
+app.post("/app/economicIndicators/showChooseDate", mobileRouter.showChooseDate);
+app.post("/app/economicIndicators/deleteXz", mobileRouter.deleteXz);
+app.post("/app/economicIndicators/addXzData", mobileRouter.addXzData);
+app.post("/app/economicIndicators/addInToXzData", mobileRouter.addInToXzData);
+app.post("/app/economicIndicators/showXzSet", mobileRouter.showXzSet);
+app.post("/app/economicIndicators/setXzValue", mobileRouter.setXzValue);
 
 app.listen(3001);                                                 //监听3000端口
 

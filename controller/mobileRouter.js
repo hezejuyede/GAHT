@@ -512,3 +512,119 @@ exports.getEconomicIndicators = function (req, res, next) {
     })
 
 };
+
+let xzData=[
+    {"text":"有功负荷指令","id":"1"},
+    {"text":"有功负荷指令","id":"2"},
+    {"text":"有功负荷指令","id":"3"},
+    {"text":"有功负荷指令","id":"4"},
+    {"text":"有功负荷指令","id":"5"},
+    {"text":"有功负荷指令","id":"6"},
+    {"text":"有功负荷指令","id":"7"},
+    {"text":"有功负荷指令","id":"8"},
+    {"text":"有功负荷指令","id":"9"},
+    {"text":"有功负荷指令","id":"10"},
+    {"text":"有功负荷指令","id":"11"},
+    {"text":"有功负荷指令","id":"12"},
+    {"text":"有功负荷指令","id":"13"},
+    {"text":"有功负荷指令","id":"14"},
+    {"text":"有功负荷指令","id":"15"},
+    {"text":"有功负荷指令","id":"16"},
+    {"text":"有功负荷指令","id":"17"},
+    {"text":"有功负荷指令","id":"18"}
+    ];
+
+exports.showChooseDate = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        res.json({
+            "state": "1",
+            "message": "请求成功",
+            "data": xzData
+        })
+    })
+
+};
+
+let addXzData = [];
+exports.deleteXz = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        let id = fields.id;
+        for (let i = 0; i < xzData.length; i++) {
+            if (id === xzData[i].id) {
+                addXzData.push(xzData[i]);
+                xzData.splice(i, 1)
+            }
+        }
+        res.json({
+            "state": "1",
+            "message": "请求成功",
+            "data": xzData
+        })
+    })
+
+};
+
+exports.addXzData = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        res.json({
+            "state": "1",
+            "message": "请求成功",
+            "data": addXzData
+        })
+    })
+
+};
+
+exports.addInToXzData = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        let id = fields.id;
+        for (let i = 0; i < addXzData.length; i++) {
+            if (id === addXzData[i].id) {
+                xzData.push(addXzData[i]);
+                addXzData.splice(i, 1)
+            }
+        }
+        res.json({
+            "state": "1",
+            "message": "请求成功",
+            "addXzData": addXzData,
+            "xzData":xzData
+        })
+    });
+};
+
+let  szxzData=[
+    {"text":"#1","valueName":"炉侧主气温度","maxValue":"","minValue":"","id":"1"},
+    {"text":"#2","valueName":"炉侧主气温度","maxValue":"","minValue":"","id":"2"},
+    {"text":"#3","valueName":"炉侧主气温度","maxValue":"","minValue":"","id":"3"},
+    {"text":"#4","valueName":"炉侧主气温度","maxValue":"","minValue":"","id":"4"},
+    {"text":"#5","valueName":"炉侧主气温度","maxValue":"","minValue":"","id":"5"},
+    {"text":"#6","valueName":"炉侧主气温度","maxValue":"","minValue":"","id":"6"}
+    ];
+
+exports.showXzSet = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        res.json({
+            "state": "1",
+            "message": "请求成功",
+            "data":szxzData
+        })
+    })
+};
+
+exports.setXzValue = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        szxzData = fields.data;
+        res.json({
+            "state": "1",
+            "message": "设置成功",
+            "data":szxzData
+        })
+    })
+};
