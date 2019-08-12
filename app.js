@@ -78,6 +78,17 @@ app.post("/app/economicIndicators/addInToXzData", mobileRouter.addInToXzData);
 app.post("/app/economicIndicators/showXzSet", mobileRouter.showXzSet);
 app.post("/app/economicIndicators/setXzValue", mobileRouter.setXzValue);
 
+
+app.post("/app/schedulingPlan/getSchedulingPlanLineData", mobileRouter.getSchedulingPlanLineData);
+app.post("/app/schedulingPlan/getSchedulingPlanTableData", mobileRouter.getSchedulingPlanTableData);
+
+
+app.post("/app/dutyLog/dutyLogData", mobileRouter.dutyLogData);
+app.post("/app/unitStartStop/unitStartStop", mobileRouter.unitStartStop);
+
+app.post("/app/openingMode/getOpeningMode", mobileRouter.getOpeningMode);
+
+
 app.listen(3001);                                                 //监听3000端口
 
 console.log("SERVER START");                                     //控制台打印服务器成功启动信息

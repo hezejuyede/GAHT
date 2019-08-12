@@ -25,15 +25,7 @@ let loadManagementData = [
     {type:"#6",rj:"76.61%",hb:"1.82",AGC:"1411kw",ss:"1415mv"}
 ];
 
-let loadManagementData2 = [
-    {type:"全部",rj:"86.61%",hb:"2.82",AGC:"2411kw",ss:"2415mv"},
-    {type:"#1",rj:"86.61%",hb:"2.82",AGC:"2411kw",ss:"2415mv"},
-    {type:"#2",rj:"86.61%",hb:"2.82",AGC:"2411kw",ss:"2415mv"},
-    {type:"#3",rj:"86.61%",hb:"2.82",AGC:"2411kw",ss:"2415mv"},
-    {type:"#4",rj:"86.61%",hb:"2.82",AGC:"2411kw",ss:"2415mv"},
-    {type:"#5",rj:"86.61%",hb:"2.82",AGC:"2411kw",ss:"2415mv"},
-    {type:"#6",rj:"86.61%",hb:"2.82",AGC:"2411kw",ss:"2415mv"}
-];
+
 
 
 let equipmentLine = [{
@@ -625,6 +617,234 @@ exports.setXzValue = function (req, res, next) {
             "state": "1",
             "message": "设置成功",
             "data":szxzData
+        })
+    })
+};
+
+
+let schedulingPlanLineData1 = [{
+    "xAxis":['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24'],
+    "present":[4501, 3501, 4515, 4585, 5900, 4530, 5510,4501, 5501, 4515, 4585, 5200, 4530, 5510,4501, 4501, 4515, 4585, 5500, 4530, 3510,4501, 4501,4501,],
+    "intraday":[4001, 3001, 3015, 3085, 3600, 4830, 3710,4001, 3001, 4015, 4085, 3600, 4830, 3710,4001, 3001, 4015, 4085, 3600, 4830, 3710,4001, 3001,4001,],
+    "realTime":[4001, 3011, 3025, 3095, 3610, 4840, 3720,4101, 3101, 4115, 4185, 3700, 4730, 3810,4101, 3101, 4115, 4185, 3500, 4930, 3810,4101, 3101,4101,]
+}];
+
+let schedulingPlanLineData2 = [{
+    "xAxis":['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24'],
+    "present":[3501, 2501, 3515, 3585, 4900, 4530, 4510,3501, 4501, 3515, 3585, 4200, 3530, 4510,3501, 3501, 3515, 3585, 4500, 3530, 4510,3501, 3501,3501,],
+    "intraday":[3001, 4001, 4015, 4085, 4600, 3830, 4710,3001, 4001, 3015, 3085, 4600, 3830, 4710,3001, 4001, 3015, 3085, 4600, 3830, 4710,3001, 4001,3001,],
+    "realTime":[3001, 4011, 4025, 4095, 4610, 3840, 4720,3101, 4101, 3115, 3185, 4700, 3730, 4810,3101, 4101, 3115, 3185, 4500, 3930, 4810,3101, 4101,3101,]
+}];
+
+exports.getSchedulingPlanLineData = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        if(fields.id==="1"){
+            res.json({
+                "state":"1",
+                "message":"请求成功",
+                "data":schedulingPlanLineData1
+            })
+        }
+        else {
+            res.json({
+                "state":"1",
+                "message":"请求成功",
+                "data":schedulingPlanLineData2
+            })
+        }
+    })
+};
+
+let getSchedulingPlanTableData =[
+    {"time":"23:55","mqjh":"2411kw","rnjh":"2411kw","sscl":"2411kw"},
+    {"time":"22:55","mqjh":"2411kw","rnjh":"2411kw","sscl":"2411kw"},
+    {"time":"22:55","mqjh":"2411kw","rnjh":"2411kw","sscl":"2411kw"},
+    {"time":"22:55","mqjh":"2411kw","rnjh":"2411kw","sscl":"2411kw"},
+    {"time":"22:55","mqjh":"2411kw","rnjh":"2411kw","sscl":"2411kw"},
+    {"time":"22:55","mqjh":"2411kw","rnjh":"2411kw","sscl":"2411kw"},
+    {"time":"22:55","mqjh":"2411kw","rnjh":"2411kw","sscl":"2411kw"}
+];
+
+let getSchedulingPlanTableData2 =[
+    {"time":"13:55","mqjh":"3411kw","rnjh":"2411kw","sscl":"2411kw"},
+    {"time":"12:55","mqjh":"3411kw","rnjh":"2411kw","sscl":"2411kw"},
+    {"time":"12:55","mqjh":"3411kw","rnjh":"2411kw","sscl":"2411kw"},
+    {"time":"12:55","mqjh":"3411kw","rnjh":"2411kw","sscl":"2411kw"},
+    {"time":"12:55","mqjh":"3411kw","rnjh":"2411kw","sscl":"2411kw"},
+    {"time":"12:55","mqjh":"3411kw","rnjh":"2411kw","sscl":"2411kw"},
+    {"time":"12:55","mqjh":"3411kw","rnjh":"2411kw","sscl":"2411kw"}
+];
+
+
+
+exports.getSchedulingPlanTableData = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        if(fields.id==="1"){
+            res.json({
+                "state":"1",
+                "message":"请求成功",
+                "data":getSchedulingPlanTableData
+            })
+        }
+        else {
+            res.json({
+                "state":"1",
+                "message":"请求成功",
+                "data":getSchedulingPlanTableData2
+            })
+        }
+    })
+};
+
+let dutyLogData =[
+    {"name":"郑建强","time":"2019-08-07 12:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-07 12:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-07 12:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-07 12:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-07 12:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-07 12:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-07 12:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-07 12:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-07 12:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-07 12:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"}
+];
+
+let dutyLogData2 =[
+    {"name":"郑建强","time":"2019-08-06 09:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-06 09:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-06 09:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-06 09:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-06 09:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-06 09:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-06 09:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-06 09:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-06 09:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"},
+    {"name":"郑建强","time":"2019-08-06 09:00","content":"这是测试内容，哈哈哈哈哈哈哈哈哈哈哈哈"}
+];
+
+exports.dutyLogData = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        if (fields.time === "2019-08-06") {
+            res.json({
+                "state": "1",
+                "message": "请求成功",
+                "data": dutyLogData
+            })
+        }
+        else {
+            res.json({
+                "state": "1",
+                "message": "请求成功",
+                "data": dutyLogData2
+            })
+        }
+    })
+};
+
+
+let unitStartStop1 = [{
+    "count": "2",
+    "duration": "164.5天",
+    "data": [
+        {"state": "运行", "time": "2019-08-01", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-02", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-03", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-04", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-05", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-06", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-07", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-01", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-02", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-03", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-04", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-05", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-06", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-07", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-01", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-02", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-03", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-04", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-05", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-06", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-07", "jxsc": "2.4天"},
+    ]
+}];
+
+let unitStartStop2 = [{
+    "count": "3",
+    "duration": "124.5天",
+    "data": [
+        {"state": "运行", "time": "2019-08-01", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-02", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-03", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-04", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-05", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-06", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-07", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-01", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-02", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-03", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-04", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-05", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-06", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-07", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-01", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-02", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-03", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-04", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-05", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-06", "jxsc": "2.4天"},
+        {"state": "运行", "time": "2019-08-07", "jxsc": "2.4天"},
+    ]
+}];
+
+
+exports.unitStartStop = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        if (fields.id === "1") {
+            res.json({
+                "state": "1",
+                "message": "请求成功",
+                "data": unitStartStop1
+            })
+        }
+        else  if (fields.time === "2018") {
+            res.json({
+                "state": "1",
+                "message": "请求成功",
+                "data": unitStartStop2
+            })
+        }
+        else {
+            res.json({
+                "state": "1",
+                "message": "请求成功",
+                "data": unitStartStop2
+            })
+        }
+    })
+};
+
+let  openingModeData=[
+        {"unit":"#1","state":"运行","time":"2019-08-05 07:23:00","status":"1"},
+        {"unit":"#2","state":"停机","time":"2019-08-06 01:23:00","status":"2"},
+        {"unit":"#3","state":"运行","time":"2019-08-05 02:23:00","status":"1"},
+        {"unit":"#4","state":"运行","time":"2019-08-05 03:23:00","status":"1"},
+        {"unit":"#5","state":"运行","time":"2019-08-05 04:23:00","status":"1"},
+        {"unit":"#6","state":"停机","time":"2019-08-08 09:23:00","status":"2"}
+        ];
+
+exports.getOpeningMode = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        res.json({
+            "state": "1",
+            "message": "请求成功",
+            "data": openingModeData
         })
     })
 };
