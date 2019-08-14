@@ -1,7 +1,7 @@
 ﻿const express = require("express");                            //引入express框架
 const mobileRouter = require('./controller/mobileRouter');    //引入移动端客户路由
 const session = require("express-session");                  //引入session模块
-
+const mongodb = require("./models/mongodb");        //引入mongodb的数据库
 
 const app = express();                                   //实例化express
 
@@ -88,7 +88,72 @@ app.post("/app/unitStartStop/unitStartStop", mobileRouter.unitStartStop);
 
 app.post("/app/openingMode/getOpeningMode", mobileRouter.getOpeningMode);
 
+const server = app.listen(3001);                    //监听3000端口
+console.log("SERVER START");                       //控制台打印服务器成功启动信息
+const io = require('socket.io').listen(server);   //引入socket.io模块
 
-app.listen(3001);                                                 //监听3000端口
+let arrAllSocket = [];
+io.on("connection", (socket) => {
+    //监控客服端
+    socket.on("CustomerService", (msg) => {
+        let user = msg.username;
+        arrAllSocket[user] = socket;
+    });
 
-console.log("SERVER START");                                     //控制台打印服务器成功启动信息
+    //监控用户端
+    socket.on("privateMessage", (from, to, msg) => {
+        console.log(from);
+        console.log(to);
+        console.log(msg);
+
+
+        if (arrAllSocket[to]) {
+            arrAllSocket[to].emit("privateMsg", from,to,msg);
+            arrAllSocket[from].emit("privateMsg", from,to,msg);
+        }
+        else {
+            arrAllSocket[from].emit("privateMsg",from,to,msg);
+            let username = to;
+            let onMessage = [];
+            let t = msg.time;
+            let time = t.slice(5);
+            let b = {
+                'direction':"right",
+                'time':time,
+                'rightContent': msg.message,
+                'rightAvatar': msg.avatar,
+                'state':"2"
+            };
+
+            onMessage.push(b);
+
+            mongodb.find("userinfos", {"username": username}, (err, result) => {
+                if (err) {
+                    console.log(err)
+                }
+                else {
+                    let chatList = result[0].chatList;
+                    let c = chatList.concat(onMessage);
+                    mongodb.updateMany('userinfos', {"username": username},
+                        {
+                            $set: {"chatList": c}
+                        },
+                        (err, result) => {
+                            if (err) {
+                                console.log(err)
+                            }
+                            else {
+
+                                console.log("1")
+
+                            }
+                        }
+                    )
+
+                }
+            })
+        }
+
+    })
+
+});
