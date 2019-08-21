@@ -891,7 +891,7 @@ exports.userRegister = function (req, res, next) {
         var Password = md5(md5(password).substr(4, 7) + md5(password));
         var code = fields.code;
         if (code === "10086") {
-            mongodb.find("userInfo", {"userInfo": fields.username}, (err, result) => {
+            mongodb.find("userInfo", {"username": fields.username}, (err, result) => {
                 if (err) {
                     res.json({
                         "state": "-4",
