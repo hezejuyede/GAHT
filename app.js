@@ -93,6 +93,7 @@ app.post("/app/openingMode/getOpeningMode", mobileRouter.getOpeningMode);
 
 app.post("/app/user/userLogin", mobileRouter.userLogin);
 app.post("/app/user/userRegister", mobileRouter.userRegister);
+app.post("/app/user/userLeavePost", mobileRouter.userLeavePost);
 
 
 

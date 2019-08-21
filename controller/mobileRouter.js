@@ -940,3 +940,14 @@ exports.userRegister = function (req, res, next) {
         }
     })
 };
+
+exports.userLeavePost = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        res.json({
+            "state": "1",
+            "message": "退出成功",
+            "data": []
+        })
+    })
+};
