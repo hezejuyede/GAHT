@@ -84,9 +84,17 @@ app.post("/app/schedulingPlan/getSchedulingPlanTableData", mobileRouter.getSched
 
 
 app.post("/app/dutyLog/dutyLogData", mobileRouter.dutyLogData);
+
 app.post("/app/unitStartStop/unitStartStop", mobileRouter.unitStartStop);
 
 app.post("/app/openingMode/getOpeningMode", mobileRouter.getOpeningMode);
+
+app.post("/app/user/userLogin", mobileRouter.userLogin);
+
+app.post("/app/user/userRegister", mobileRouter.userRegister);
+
+
+
 
 const server = app.listen(3001);                    //监听3000端口
 console.log("SERVER START");                       //控制台打印服务器成功启动信息
@@ -127,7 +135,7 @@ io.on("connection", (socket) => {
 
             onMessage.push(b);
 
-            mongodb.find("userinfos", {"username": username}, (err, result) => {
+          /*  mongodb.find("userinfos", {"username": username}, (err, result) => {
                 if (err) {
                     console.log(err)
                 }
@@ -151,7 +159,7 @@ io.on("connection", (socket) => {
                     )
 
                 }
-            })
+            })*/
         }
 
     })

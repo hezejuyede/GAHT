@@ -848,3 +848,95 @@ exports.getOpeningMode = function (req, res, next) {
         })
     })
 };
+
+exports.userLogin = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        var password = fields.password;
+        var Password = md5(md5(password).substr(4, 7) + md5(password));
+        mongodb.find("userInfo", {"username": fields.username}, (err, result) => {
+            if (result.length === 0) {
+                res.json({
+                    "state": "2",
+                    "message": "该用户未注册",
+                    "data": []
+                })
+            }
+            else {
+                var mongodbPassword = result[0].password;
+                if (mongodbPassword === Password) {
+                    req.session.login = "1";
+                    res.json({
+                        "state": "1",
+                        "message": "登录成功",
+                        "data": fields.username
+                    })
+                }
+                else {
+                    res.json({
+                        "state": "-1",
+                        "message": "密码错误",
+                        "data": []
+                    })
+                }
+            }
+        })
+    })
+};
+
+exports.userRegister = function (req, res, next) {
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields) {
+        var password = fields.password;
+        var Password = md5(md5(password).substr(4, 7) + md5(password));
+        var code = fields.code;
+        if (code === "10086") {
+            mongodb.find("userInfo", {"userInfo": fields.username}, (err, result) => {
+                if (err) {
+                    res.json({
+                        "state": "-4",
+                        "message": "数据库查询错误",
+                        "data": []
+                    });
+                    return;
+                }
+                if (result.length !== 0) {
+                    res.json({
+                        "state": "-1",
+                        "message": "该用户已注册",
+                        "data": []
+                    });
+                }
+                else {
+                    mongodb.insertOne("userInfo", {
+                        "username": fields.username,
+                        "password": Password,
+                        "userPhone": fields.phone,
+                    }, function (err, result) {
+                        if (err) {
+                            res.json({
+                                "state": "-4",
+                                "message": "数据库新增错误",
+                                "data": []
+                            });
+                        }
+                        else {
+                            res.json({
+                                "state": "1",
+                                "message": "注册成功",
+                                "data": {"username":fields.username}
+                            });
+                        }
+                    })
+                }
+            })
+        }
+        else {
+            res.json({
+                "state": "-2",
+                "message": "注册码错误",
+                "data": []
+            });
+        }
+    })
+};
